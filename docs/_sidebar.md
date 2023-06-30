@@ -4,6 +4,7 @@
 - 集合框架
 
   - [ArrayList、Vector源码剖析](mks/collections/ArrayList、Vector源码剖析.md)
+  - [链式存储及LinkedList源码解析](mks/collections/链式存储及LinkedList源码解析.md)
 
 - 多线程
 
