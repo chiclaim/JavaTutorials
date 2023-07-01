@@ -7,16 +7,24 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css"> -->
   <link rel="stylesheet" href="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/light.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
 </head>
 <body>
-  <div id="app"></div>
+  <nav>
+    <a href="/">Java设计模式</a>
+    <a href="/">Kotlin</a>
+    <a href="/">更多</a>
+  </nav>
+  <div data-app id="main">加载中...</div>
   <script>
     window.$docsify = {
-      name: '',
-      repo: '',
+      name: '我的Java技术博客汇总',
+      el: '#main',
+      repo: 'chiclaim/JavaTutorials', // 右上角展示 Github 图标
+      
 	    loadSidebar: true,
-      autoHeader: true,
 	    <!-- coverpage: true-->
       toc: {
         tocMaxLevel: 5,
@@ -25,7 +33,6 @@
       },
       pagination: {
         previousText: '上一章节',
-        // or
         nextText: {
           '/en/': 'NEXT',
           '/': '下一章节'
@@ -41,5 +48,18 @@
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    const gitalk = new Gitalk({
+      clientID: 'b052701e03952799a7bf',
+      clientSecret: '5c9361355f7a1ca4a67469e0d89efcbb3a3b0bb2',
+      repo: 'JavaTutorials',
+      owner: 'chiclaim',
+      admin: ['chiclaim'],
+      distractionFreeMode: false,
+      id: decodeURI(window.location.pathname),
+    })
+  </script>
 </body>
 </html>
