@@ -1,23 +1,11 @@
-### 本文主要内容：
 
-1. 数据结构和算法的系列介绍
-2. 数据结构相关的基本概念
-3. 线性表
-4. 实现ArrayList
-5. 对比JDK中的ArrayList
-    1. foreach迭代
-    2. 扩容机制
-    3. fail-fast 机制
-    4. ArrayList、Vector使用总结
-
-
-### 基本概念
+# 基本概念
  
 我们先来回顾下数据结构的几个概念。
 
 何谓数据结构？专门研究数据之间的逻辑关系、存储方式及操作的学问就是所谓的数据结构。
 
-#### 数据的逻辑结构
+## 数据的逻辑结构
 
 数据元素之间存在的关联关系(与它们在计算机中的存储位置无关)，被称为数据的逻辑结构。
 
@@ -28,7 +16,7 @@
 3.	树形结构：数据元素之间存在"一对多"的关系
 4.	图状结构或网状结构：
 
-#### 数据的存储结构
+## 数据的存储结构
 	
 对于数据不同的逻辑结构，在底层通常通常有两种物理存储结构（数据元素在计算机存储空间的存放形式）：
 
@@ -40,7 +28,7 @@
 ![这里写图片描述](images/1.jpg)
 
 
-### 线性表
+# 线性表
 
 对于常用的数据结构可以分为线性结构和非线性结构。线性结构主要是线性表，非线性结构主要是树和图。
 
@@ -48,7 +36,7 @@
 
 线性表的每个元素必须有相同的结构（元素可以是简单的数据，也可以是复杂的数据，但复杂的数据内部结构要相同）。
 
-#### 线性表的基本操作
+## 线性表的基本操作
 
 1. 线性表初始化
 2. 插入元素
@@ -66,7 +54,7 @@
 
 顺序结构存储是指用一组地址连续的存储单元一次存放线性表中的元素。也就是说，顺序结构线性表中的数据元素的物理关系和逻辑关系是一致的。所以如果线性表采用顺序存储，往线性表中间的某个位置插入或者删除元素需要对该位置及其之后的元素进行移动。
 
-#### 顺序存储结构的线性表中间位置插入新元素
+## 顺序存储结构的线性表中间位置插入新元素
 
 首先要把该位置及其之后的元素往后移一位，为新元素腾出空间。
 
@@ -84,7 +72,7 @@
 ![这里写图片描述](images/4.jpg)
 
 
-#### 删除顺序存储结构的线性表中间位置元素
+## 删除顺序存储结构的线性表中间位置元素
 
 删除顺序存储结构的线性表中间位置的元素，操作类似。
 
@@ -102,7 +90,7 @@
 
 顺序存储的线性表，采用数组存储，插入元素如果容量不够，需要进行扩容。扩容主要是创建一个新的数组，然后把数据从老数组拷贝到新的数组中。
 
-### 实现ArrayList
+# 实现ArrayList
 
 `Java` 中的 `ArrayList` 就是一个顺序存储的线性表。下面来实现一个简易的`ArrayList`。
 
@@ -302,11 +290,11 @@ public class ArrayList<T> implements List<T> {
 
 ```
 
-### 对比JDK中的ArrayList
+# 对比JDK中的ArrayList
 
 以上代码实现了线性表的基本操作，代码注释也比较详情就不做赘述。 主要说下和 `JDK ArrayList` 不同点：
 
-#### 1. forEach迭代
+## 1. forEach迭代
 
 以上代码不支持`forEach`迭代，为了实现能够支持 `forEach` 迭代，需要实现  `java.lang.Iterable` 接口，如下所示：
 
@@ -327,7 +315,7 @@ class MyIterator implements Iterator<T> {
 }
 ```
 
-#### 2. 扩容机制
+## 2. 扩容机制
 
 我们是不断的将 `capacity * 2`，直到 capacity 大于 expectCapacity，JDK里的ArrayList的扩容机制是：默认容量是 10，当需要的容量超过默认容量时，扩容算法为 `(int) (oldCapacity * 1.5)`，JDK ArrayList 扩容代码：
 
@@ -345,7 +333,7 @@ private void grow(int minCapacity) {
 }
 ```
 
-#### 3. fail-fast 机制
+## 3. fail-fast 机制
 
 当我们`foreach`的时候，删除集合元素会抛出 `java.util.ConcurrentModificationException` 异常。如：
 
@@ -508,7 +496,7 @@ private static void fixIteratorMultipleThread() {
 `Vector` 和 `ArrayList`非常相似，`Vector` 是线程安全的，`ArrayList`不是线程安全的。
 `Vector` 实现线程安全的方式也很简单，把主要的操作方法加上了`synchronized`关键字，包括 `iterator`。上面`ArrayList`的`fail-fast`演示同样适用于`Vector`，就算把 `ArrayList` 换成 `Vector` 同样会出现 `ConcurrentModificationException` 异常（原因一样，就不解释了）。
 
-### 总结
+# 总结
 
 1. 顺序存储的线性表如`ArrayList`、`Vector`是用一组地址连续的存储单元（数组）来存储元素的。
 
@@ -521,17 +509,3 @@ private static void fixIteratorMultipleThread() {
 5. 如果在开发中我们知道要存储的元素的个数，为了节省内存空间可以在构造ArrayList的时候传递容量参数，如 `new ArrayList(2)`; 如果使用的是无参的构造方法，在执行add方法的时候，会创建长度为10的数组（DEFAULT_CAPACITY = 10）。
 
 6. 在不考虑多线程的情况下，尽量使用`ArrayList`，效率更高。
-
----
-
-> 本文的 `github` 地址: [JavaTutorials](https://github.com/chiclaim/JavaTutorials)
-
-
-
-
-
-
-
-
-
-
