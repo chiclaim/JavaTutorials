@@ -1,21 +1,12 @@
 
+# 前言
+
 前面两篇文章介绍了线性表的两种实现方式：`顺序`（数组）存储和`链式`存储。
 
 本文介绍的栈是由线性表发展而来，可以把栈当做`被限制的线性表`，因为栈的定义是只能在固定的`一端`（栈顶）进行插入和删除操作。
 
-## 本文主要内容：
 
-1. 栈的基本概念
-2. 栈的相关操作
-3. 顺序存储实现栈
-4. 链式存储实现栈
-5. JDK中的Stack、LinkedList
-6. LeetCode 第20号题：有效的括号
-7. Dijkstra双栈算术表达式求值
-
-
-
-## 栈的基本概念
+# 栈的基本概念
 
 是一个只能在某一端进行插入、删除操作的线性表。通常在线性表的尾端，或称栈顶。
 
@@ -26,7 +17,7 @@
 从栈顶删除一个元素称之为`出栈`（pop）
 
 
-## 栈的相关操作
+# 栈的相关操作
 
 因为栈是一个被限制了的线性表，通过索引来插入、删除、访问等操作在栈中是不支持的。
 
@@ -55,7 +46,7 @@ void clear()
 ![这里写图片描述](images/stack1.jpg)
 
 
-## 顺序存储实现栈
+# 顺序存储实现栈
 
 因为栈也是一个线性表，我们已经在`《ArrayList、Vector源码剖析》`中实现了顺序存储的线性表，所以顺序存储来实现一个栈就很简单了。
 
@@ -182,7 +173,7 @@ public class Stack<T> implements Iterable<T> {
 
 代码很简单，就不赘述了。
 
-## 链式存储实现栈
+# 链式存储实现栈
 
 ```java
 public class LinkedStack<T> implements Iterable<T> {
@@ -258,7 +249,7 @@ public class LinkedStack<T> implements Iterable<T> {
 
 这里的stackTop就相当于以前介绍链表时候的tail。
 
-## Java Stack 和 LinkedList
+# Java Stack 和 LinkedList
 
 Java中的`Stack`底层是用数组实现的，也就是通过顺序存储的方式实现的 。继承自`Vector`类，所以它是线程安全的的。
 
@@ -269,12 +260,12 @@ Java中的`Stack`底层是用数组实现的，也就是通过顺序存储的方
 在`Java`中，除了`Stack`和`LinkedList`外，`ArrayDeque`也可以作为栈使用，`ArrayDeque`和`LinkedList`一样，也是双端队列，一个是`基于数组`实现的，一个是`基于链表`实现的。
 
 
-## 栈的实践
+# 栈的实践
 
 在计算机中栈的应用非常广泛，比如实现递归计算机需要用栈来存储（关于递归后面会单独用一篇文章来分析）。比如`Android`界面的管理也用栈来实现。下面使用栈来解决几个算法问题。
 
 
-### LeetCode 第20号题有效的括号
+## LeetCode 第20号题有效的括号
 
 描述如下：
 
@@ -317,7 +308,7 @@ public boolean isValid(String s) {
 }
 ```
 
-### Dijkstra双栈算术表达式求值
+## Dijkstra双栈算术表达式求值
 
 在上面LeetCode的题目的基础上，我们进一步看下下面的 问题
 
@@ -376,8 +367,4 @@ public static void main(String[] args) {
 	System.out.println(value);//201.0
 }
 ```
-
----
-> 本文的 `github` 地址: [JavaTutorials](https://github.com/chiclaim/JavaTutorials)
-
 
