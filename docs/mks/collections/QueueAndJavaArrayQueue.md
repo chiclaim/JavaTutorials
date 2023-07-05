@@ -286,7 +286,7 @@ public class LinkedQueue<T> implements Queue<T>{
 
 `LinkedList`是基于链表实现的 ，所以很容易实现在两端进行插入和删除操作（removeFirst、removeLast、addFirst、addLast）。
 
-关于`LinkedList`进行过介绍，可以查看之前的文章:
+关于`LinkedList`的介绍，可以查看之前的文章:
 
 - [链式存储及 LinkedList 源码解析](mks/collections/LinkedList.md)
 - [栈和 Java Stack 源码分析](mks/collections/JavaStack.md)
@@ -505,9 +505,24 @@ removeLast()：实际是调用`pollLast`方法，如下图所示：
 
 > 总结，peekXXX相关方法，如果目标元素为空不会抛出异常 getXXX 相关方法，如果目标元素为空，抛出异常。
 
-# 最后
+### ArrayDeque 总结
 
-根据`ArrayDeque`文档的描述，当`ArrayDeque`当做`Stack`来使用时，它比 `java.util.Stack` 要快；当`ArrayDeque`当做`Queue`来使用，它比 `java.util.LinkedList` 要快。所以在开发中，如果需要使用栈或者队列，尽量使用ArrayDeque。至此，`java.util.ArrayDeque` 的分析就完毕了。
+`ArrayDeque` 的官方文档描述：
+
+```text
+Resizable-array implementation of the Deque interface. 
+Array deques have no capacity restrictions; 
+they grow as necessary to support usage. 
+They are not thread-safe; in the absence of external synchronization, they do not support concurrent access by multiple threads. 
+Null elements are prohibited. This class is likely to be faster than Stack when used as a stack, and faster than LinkedList when used as a queue.
+```
+
+根据官方文档对 ArrayDeque 的描述可以得出：
+
+- `ArrayDeque` 不是线程安全的，在多线程访问中要注意线程安全
+- 当做`stack`来使用时，`ArrayDeque` 要比 `java.util.Stack` 快
+- 当做`queue`来使用，`ArrayDeque` 要比 `java.util.LinkedList` 快
+- `ArrayDeque` 不支持 `null` 元素
 
 
 
