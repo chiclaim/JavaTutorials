@@ -36,7 +36,7 @@
 
 ## 插入(Insert)
 
-执行插入操作需要对二叉堆执行**siftUp**操作( 也称为bubble-up, percolate-up, up-heap, trickle-up, heapify-up, or cascade-up)，下面以大顶堆为例图解下siftUp的流程：
+执行插入操作需要对二叉堆执行**siftUp**操作( 也称为bubble-up, percolate-up, up-heap, trickle-up, heapify-up, or cascade-up)，下面以大顶堆为例图解下`siftUp`的流程：
 
 假设有一个如下的二叉堆：
 
@@ -56,7 +56,7 @@
 
 当前的二叉树就符合二叉堆的性质了，这样就完成了整个**siftUp**操作。
 
-> 据上所述，siftUp操作就是先在二叉堆尾部添加元素，然后新插入的元素和父节点对比，如果不符合二叉堆特性就和父节点交换位置，然后让交换后的位置继续和它的父节点对比，直到符合二叉堆的特性。
+> 据上所述，`siftUp`操作就是先在二叉堆尾部添加元素，然后新插入的元素和父节点对比，如果不符合二叉堆特性就和父节点交换位置，然后让交换后的位置继续和它的父节点对比，直到符合二叉堆的特性。
 
 ## 移除堆顶元素(Extract)
 
@@ -83,11 +83,12 @@
 
 把一个数组转成二叉堆有两种方法：
 
-- 对每个元素add进二叉堆
-- 对数组进行heapify操作
+- 对每个元素`add`进二叉堆
+- 对数组进行`heapify`操作
 
 对每个元素add进二叉堆很简单，只要遍历数组，然后调用二叉堆的add方法即可。
-heapify操作主要是把数组当成二叉堆，然后对二叉堆的非叶子节点（从二叉堆的最后一个非叶子节点开始）进行siftDown操作。
+
+`heapify`操作主要是把数组当成二叉堆，然后对二叉堆的非叶子节点（从二叉堆的最后一个非叶子节点开始）进行siftDown操作。
 
 假设有一个数组 [3 , 7 ,  5 ,  9 ,  4 ,  8]，需要对其转成二叉堆(大顶堆)
 
@@ -341,15 +342,15 @@ public class PriorityQueue<T extends Comparable<T>> implements Queue<T> {
 
 如果用大顶堆的话，我们定义成绩高的优先级高。
 
-如果用小顶堆的话，我们定义成绩高的反而优先级低，这样的话在siftDown和siftUp的时候能让成绩高的在堆顶。
+如果用小顶堆的话，我们定义成绩高的反而优先级低，这样的话在`siftDown`和`siftUp`的时候能让成绩高的在堆顶。
 
 
 # Java PriorityQueue源码分析
 
-Java 里的 `PriorityQueue` 也是基于二叉堆实现的，和我们上面的实现方式很像。如果已经掌握了上面的二叉堆，对于 `Java PriorityQueue` 是掌握是很简单的，没有特别需要阐明的技术点。
+Java 里的优先队列 `PriorityQueue` 也是基于二叉堆实现的，和我们上面的实现方式很像。如果已经掌握了上面的二叉堆，对于 `Java PriorityQueue` 是掌握是很简单的，没有特别需要阐明的技术点。
 有需要的读者最好结合二叉堆自己看下 **Java PriorityQueue** 的源码。
 
-主要也是 **构造方法** 中对集合进行 **heapify** 操作：
+主要也是在 **构造方法** 中对集合进行 **heapify** 操作：
 
 ```java
 public PriorityQueue(Collection<? extends E> c) {
@@ -414,5 +415,5 @@ public E poll() {
 }
 ```
 
-> 需要注意的是 **Java PriorityQueue** 默认是一个 **小顶堆(按自然排序)**。我们上面实现的二叉堆要么是大顶堆，要么是小顶堆，**Java PriorityQueue** 支持传递比较器，所以它支持通过定制 **比较器(Comparator)**，把 **Java PriorityQueue** 构造成一个 **大顶堆**，这样更加灵活的定制优先级。
+> 需要注意的是 `Java PriorityQueue` 默认是一个 `小顶堆(按自然排序)`。我们上面实现的二叉堆要么是大顶堆，要么是小顶堆，`Java PriorityQueue` 支持传递比较器，所以它支持通过定制 `比较器(Comparator)`，把 `Java PriorityQueue` 构造成一个 `大顶堆`，这样更加灵活的定制优先级。
 
