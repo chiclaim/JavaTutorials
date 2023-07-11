@@ -22,6 +22,7 @@
   - [7. 树和二叉树](mks/collections/Tree.md)
   - [8. 二分搜索树BST](mks/collections/BST.md)
   - [9. Set集合的BST实现和链表实现](mks/collections/Set.md)
+  - [10. 线段树及相关LeetCode问题](mks/collections/SegmentTree.md)
 
 
 - 多线程
