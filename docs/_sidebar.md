@@ -21,6 +21,7 @@
   - [6. Java PriorityQueue 源码分析](mks/collections/BinaryHeapPriorityQueue.md)
   - [7. 树和二叉树](mks/collections/Tree.md)
   - [8. 二分搜索树BST](mks/collections/BST.md)
+  - [9. Set集合的BST实现和链表实现](mks/collections/Set.md)
 
 
 - 多线程
