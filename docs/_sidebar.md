@@ -24,6 +24,7 @@
   - [9. Set集合的BST实现和链表实现](mks/collections/Set.md)
   - [10. 线段树及相关LeetCode问题](mks/collections/SegmentTree.md)
   - [11. Trie字典树及相关LeetCode问题](mks/collections/Trie.md)
+  - [12. 并查集(Union Find)及时间复杂度分析](mks/collections/UnionFind.md)
 
 
 - 多线程
