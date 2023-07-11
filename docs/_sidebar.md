@@ -26,6 +26,7 @@
   - [11. Trie字典树及相关LeetCode问题](mks/collections/Trie.md)
   - [12. 并查集(UnionFind)及时间复杂度分析](mks/collections/UnionFind.md)
   - [13. 平衡二叉树之AVL树](mks/collections/AVL.md)
+  - [14. 深入理解红黑树及TreeMap和TreeSet源码分析](mks/collections/RedBlackTree.md)
 
 
 - 多线程
