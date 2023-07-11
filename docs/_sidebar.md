@@ -17,8 +17,9 @@
   - [链式存储及 LinkedList 源码解析](mks/collections/LinkedList.md)
   - [栈和 Java Stack 源码分析](mks/collections/JavaStack.md)
   - [队列和 Java ArrayDeque 源码剖析](mks/collections/QueueAndJavaArrayQueue.md)
-  - [Java与递归](mks/collections/recursion.md)
+  - [Java与递归](mks/collections/Recursion.md)
   - [Java PriorityQueue 源码分析](mks/collections/BinaryHeapPriorityQueue.md)
+  - [树和二叉树](mks/collections/Tree.md)
 
 
 - 多线程
